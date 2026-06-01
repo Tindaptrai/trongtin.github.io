@@ -1,0 +1,39 @@
+:root {
+  --main-bg: #050b14;
+  --sidebar-bg: #071426;
+  --card-border: #1d63ff;
+  --cyber-blue: #3b82f6;
+}
+
+body {
+  background: #050b14;
+}
+
+#sidebar {
+  background: linear-gradient(180deg, #071426 0%, #03101f 100%);
+  border-right: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.card,
+.post-preview {
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.12);
+}
+
+.card:hover,
+.post-preview:hover {
+  border-color: rgba(59, 130, 246, 0.9);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+a {
+  color: #60a5fa;
+}
+
+code,
+pre {
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
