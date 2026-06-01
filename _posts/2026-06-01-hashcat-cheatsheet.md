@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Hashcat Cheatsheet
 date: 2026-06-01 21:00:00 +0700
 categories:
@@ -10,6 +11,7 @@ tags:
   - cracking
   - cheatsheet
 description: Cheatsheet Hashcat cho lab password security và kiểm thử hợp pháp.
+toc: true
 ---
 
 Hashcat là công cụ phục hồi mật khẩu mạnh, thường dùng trong lab password security để kiểm tra độ yếu của hash, wordlist và rule. Chỉ sử dụng với dữ liệu thuộc quyền kiểm thử hợp pháp.
@@ -24,13 +26,13 @@ Hashcat là công cụ phục hồi mật khẩu mạnh, thường dùng trong l
 
 ## Kiểm tra thiết bị
 
-```bash
+```text
 hashcat -I
 ```
 
 ## Ví dụ mode phổ biến
 
-```bash
+```text
 # MD5
 hashcat -m 0 hashes.txt rockyou.txt
 
@@ -43,7 +45,7 @@ hashcat -m 3200 hashes.txt rockyou.txt
 
 ## Attack Mode
 
-```bash
+```text
 # Straight wordlist
 hashcat -a 0 -m 1000 hashes.txt wordlist.txt
 
@@ -59,7 +61,7 @@ hashcat -a 1 -m 1000 hashes.txt words1.txt words2.txt
 
 ## Session Management
 
-```bash
+```text
 # Đặt tên session
 hashcat --session soc-lab -m 1000 hashes.txt rockyou.txt
 

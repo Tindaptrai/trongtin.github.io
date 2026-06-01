@@ -1,4 +1,5 @@
 ---
+layout: post
 title: ICMP Tunneling with SOCKS
 date: 2026-06-01 20:30:00 +0700
 categories:
@@ -10,12 +11,12 @@ tags:
   - socks
   - pivoting
 description: Ghi chú lab về ICMP tunneling và SOCKS proxy trong môi trường hợp pháp.
+toc: true
 ---
 
 ICMP tunneling là kỹ thuật đóng gói traffic vào ICMP để đi qua môi trường bị giới hạn kết nối TCP/UDP. Trong lab CTF hoặc HTB, kỹ thuật này thường được dùng để học về pivoting, egress filtering và network detection.
 
-> Chỉ thực hành trong lab được phép. Không dùng kỹ thuật tunneling để vượt kiểm soát trên hệ thống không thuộc quyền kiểm tra.
-{: .prompt-warning }
+Chỉ thực hành trong lab được phép. Không dùng kỹ thuật tunneling để vượt kiểm soát trên hệ thống không thuộc quyền kiểm tra.
 
 ## Tóm tắt
 
