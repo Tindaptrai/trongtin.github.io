@@ -255,3 +255,44 @@ tbody tr:nth-child(odd) {
   color: #ffffff !important;
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.35) !important;
 }
+
+/* ===== Fix full page background ===== */
+
+html,
+body,
+body::before,
+body::after {
+  background: #06111f !important;
+}
+
+body {
+  background-color: #06111f !important;
+}
+
+#main-wrapper,
+#core-wrapper,
+#topbar-wrapper,
+#tail-wrapper,
+#panel-wrapper,
+main,
+main > div,
+.content,
+.container,
+.container-fluid,
+.row {
+  background-color: #06111f !important;
+}
+
+#topbar,
+footer,
+#footer {
+  background-color: #07101d !important;
+}
+
+#page,
+#post-list,
+#post-wrapper,
+.post,
+.post-content {
+  background-color: #06111f !important;
+}
