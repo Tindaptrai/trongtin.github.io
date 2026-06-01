@@ -538,3 +538,49 @@ input.form-control::placeholder,
 .post-preview .preview {
   color: #cbd5e1 !important;
 }
+/* ===== Final Override: Avatar bigger + centered profile ===== */
+
+/* Căn giữa toàn bộ profile trên sidebar */
+#sidebar .profile-wrapper,
+#sidebar .site-title,
+#sidebar .site-subtitle {
+  text-align: center !important;
+}
+
+/* Căn giữa avatar */
+#avatar,
+.site-avatar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Phóng to avatar một chút */
+#avatar img,
+.site-avatar img {
+  width: 135px !important;
+  height: 135px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(56, 189, 248, 0.75) !important;
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.38) !important;
+}
+
+/* Tên nằm giữa, một dòng */
+#sidebar .site-title,
+#sidebar .site-title a {
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 1.35rem !important;
+  line-height: 1.25 !important;
+}
+
+/* Subtitle nằm giữa */
+#sidebar .site-subtitle {
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 0.92rem !important;
+  color: #93c5fd !important;
+}
