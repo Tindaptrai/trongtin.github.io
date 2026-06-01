@@ -8,698 +8,314 @@
 {%- endif -%}
 ';
 
-/* ===== Custom Cyber SOC Theme ===== */
-
 :root {
-  --cyber-bg: #06111f;
-  --cyber-bg-2: #071426;
-  --cyber-panel: #0b1a30;
-  --cyber-panel-2: #0f213b;
-  --cyber-topbar: #07101d;
-  --cyber-border: rgba(56, 189, 248, 0.45);
-  --cyber-border-soft: rgba(59, 130, 246, 0.25);
-  --cyber-blue: #3b82f6;
-  --cyber-cyan: #38bdf8;
-  --cyber-text: #dbeafe;
-  --cyber-muted: #94a3b8;
+  --sidebar-width: 320px;
+  --main-bg: #06111f;
+  --topbar-bg: #07101d;
+  --sidebar-bg: #071a33;
+  --card-bg: #0b1a30;
+  --card-border: rgba(56, 189, 248, 0.45);
+  --soft-border: rgba(56, 189, 248, 0.25);
+  --text-main: #dbeafe;
+  --text-muted: #94a3b8;
+  --link-color: #60a5fa;
+  --link-hover-color: #93c5fd;
 }
 
-/* Full page background */
 html,
-body {
-  background: var(--cyber-bg) !important;
-}
-
-/* Fix gray outside area */
 body,
 #main-wrapper,
-#main,
 #core-wrapper,
-#page,
+#tail-wrapper,
 main,
-main > div,
-#tail-wrapper {
-  background: var(--cyber-bg) !important;
+#page,
+#post-list,
+#post-wrapper {
+  background: var(--main-bg);
 }
 
-/* Topbar/header */
-#topbar-wrapper,
-#topbar {
-  background: var(--cyber-topbar) !important;
-  border-bottom: 1px solid var(--cyber-border-soft) !important;
+body {
+  color: #cbd5e1;
 }
 
-/* Search box */
-#search-input {
-  background: #0b1220 !important;
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
-  color: var(--cyber-text) !important;
-}
-
-#search-input::placeholder {
-  color: #64748b !important;
-}
-
-/* Sidebar */
-#sidebar {
-  background: linear-gradient(180deg, #071a33 0%, #03101f 100%) !important;
-  border-right: 1px solid rgba(56, 189, 248, 0.35) !important;
-}
-
-/* Avatar glow */
-#avatar img,
-.site-avatar img {
-  border: 2px solid rgba(56, 189, 248, 0.65) !important;
-  box-shadow: 0 0 22px rgba(56, 189, 248, 0.38) !important;
-}
-
-/* Sidebar title */
-#sidebar .site-title,
-#sidebar .site-title a {
-  color: #dbeafe !important;
-  font-weight: 800 !important;
-  letter-spacing: 0.5px;
-}
-
-#sidebar .site-subtitle {
-  color: #93c5fd !important;
-}
-
-/* Sidebar nav */
-#sidebar .nav-link {
-  color: #93c5fd !important;
-  border-radius: 10px !important;
-}
-
-#sidebar .nav-link.active {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 14px rgba(37, 99, 235, 0.45) !important;
-}
-
-#sidebar .nav-link:hover {
-  background: rgba(37, 99, 235, 0.18) !important;
-  color: #ffffff !important;
-}
-
-/* Home post cards */
-.post-preview {
-  background: var(--cyber-panel) !important;
-  border: 1px solid var(--cyber-border) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.10) !important;
-  padding: 1.25rem !important;
-}
-
-.post-preview:hover {
-  border-color: rgba(56, 189, 248, 0.95) !important;
-  box-shadow: 0 0 24px rgba(56, 189, 248, 0.24) !important;
-  transform: translateY(-2px);
-  transition: all 0.2s ease;
-}
-
-/* Generic cards/panels */
-.card,
-.card-wrapper,
-#panel-wrapper .card {
-  background: var(--cyber-panel) !important;
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
-  border-radius: 10px !important;
-}
-
-/* Right panel */
-#panel-wrapper,
-#access-lastmod,
-#access-tags {
-  background: transparent !important;
-}
-
-#panel-wrapper .panel-heading,
-.panel-heading {
-  color: var(--cyber-text) !important;
-}
-
-#panel-wrapper .post-tag,
-.post-tag {
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
-  color: #93c5fd !important;
-  background: rgba(15, 23, 42, 0.75) !important;
-  border-radius: 8px !important;
-}
-
-/* Titles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.post-title,
-.post-preview h1,
-.post-preview h2,
-.post-preview h3,
-.post-preview a {
-  color: var(--cyber-text) !important;
-}
-
-/* Text */
-p,
-li,
-td,
-th,
-.post-content,
-.post-tail-wrapper,
-.post-preview,
-.post-preview p {
-  color: #cbd5e1 !important;
-}
-
-/* Metadata */
-.post-meta,
-.text-muted,
-.post-preview .post-meta {
-  color: var(--cyber-muted) !important;
-}
-
-/* Links */
 a {
-  color: #60a5fa !important;
+  color: var(--link-color);
 }
 
 a:hover {
-  color: #93c5fd !important;
+  color: var(--link-hover-color);
 }
 
-/* Footer */
-footer,
-#footer,
-#tail-wrapper {
-  background: var(--cyber-bg) !important;
-  border-top: 1px solid rgba(59, 130, 246, 0.25) !important;
-  color: var(--cyber-muted) !important;
+#topbar-wrapper,
+#topbar {
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--soft-border);
 }
 
-/* Code blocks */
-pre,
-code {
-  background: #111827 !important;
-  color: #dbeafe !important;
-  border-radius: 8px !important;
+#sidebar {
+  background: linear-gradient(180deg, var(--sidebar-bg) 0%, #03101f 100%);
+  border-right: 1px solid rgba(56, 189, 248, 0.32);
 }
 
-.highlight {
-  background: #111827 !important;
-  border: 1px solid rgba(56, 189, 248, 0.25) !important;
-  border-radius: 8px !important;
+#sidebar .profile-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 2.2rem;
+  padding-inline: 1.2rem;
+  text-align: center;
 }
 
-/* Tables */
-table {
-  background: var(--cyber-panel) !important;
-  color: var(--cyber-text) !important;
+#avatar,
+.site-avatar {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
 }
 
-thead {
-  background: #111827 !important;
+#avatar img,
+.site-avatar img {
+  width: 118px;
+  height: 118px;
+  object-fit: cover;
+  border: 2px solid rgba(56, 189, 248, 0.65);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
 }
 
-tbody tr:nth-child(even) {
-  background: rgba(15, 23, 42, 0.8) !important;
+#sidebar .site-title,
+#sidebar .site-title a {
+  display: block;
+  margin: 0 auto 0.55rem;
+  color: var(--text-main);
+  font-size: 1.28rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
 }
 
-tbody tr:nth-child(odd) {
-  background: rgba(30, 41, 59, 0.55) !important;
+#sidebar .site-subtitle {
+  margin: 0 auto;
+  color: #93c5fd;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  text-align: center;
 }
 
-/* Pagination */
-.pagination .page-item .page-link {
-  background: var(--cyber-panel) !important;
-  border: 1px solid rgba(56, 189, 248, 0.35) !important;
-  color: #93c5fd !important;
+#sidebar ul.nav,
+#sidebar .nav {
+  margin-top: 2rem;
 }
 
-.pagination .page-item.active .page-link {
-  background: #2563eb !important;
-  color: #ffffff !important;
-  border-color: #2563eb !important;
+#sidebar .nav-link {
+  max-width: 240px;
+  margin-inline: auto;
+  border-radius: 10px;
+  color: #93c5fd;
+  font-size: 0.95rem;
 }
 
-/* Bottom social icons */
+#sidebar .nav-link:hover {
+  background: rgba(37, 99, 235, 0.16);
+  color: #fff;
+}
+
+#sidebar .nav-link.active {
+  background: #2563eb;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(37, 99, 235, 0.38);
+}
+
 #sidebar .sidebar-bottom a {
-  background: rgba(15, 23, 42, 0.85) !important;
-  color: #60a5fa !important;
-  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #60a5fa;
 }
 
 #sidebar .sidebar-bottom a:hover {
-  color: #ffffff !important;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35) !important;
+  color: #fff;
 }
 
-/* ===== Fix full page background ===== */
-
-html,
-body,
-body::before,
-body::after {
-  background: #06111f !important;
-}
-
-body {
-  background-color: #06111f !important;
-}
-
-#main-wrapper,
-#core-wrapper,
-#topbar-wrapper,
-#tail-wrapper,
-#panel-wrapper,
-main,
-main > div,
-.content,
-.container,
-.container-fluid,
-.row {
-  background-color: #06111f !important;
-}
-
-#topbar,
-footer,
-#footer {
-  background-color: #07101d !important;
-}
-
-#page,
-#post-list,
-#post-wrapper,
-.post,
-.post-content {
-  background-color: #06111f !important;
-}
-/* ===== Force topbar/search/background color fix ===== */
-
-html,
-body,
-#main-wrapper,
-#core-wrapper,
-#topbar-wrapper,
-#topbar,
-#panel-wrapper,
-#tail-wrapper,
-main,
-.content,
-.container,
-.container-fluid {
-  background-color: #06111f !important;
-}
-
-/* Topbar line */
-#topbar-wrapper,
-#topbar {
-  background: #06111f !important;
-  border-bottom: 1px solid rgba(56, 189, 248, 0.28) !important;
-}
-
-
-
-/* Search input - Chirpy variants */
-
-#search-input::placeholder,
-input[type="search"]::placeholder,
-input.form-control::placeholder,
-.form-control::placeholder {
-  color: #64748b !important;
-}
-
-/* Remove gray strips */
-body::before,
-body::after,
-#main-wrapper::before,
-#core-wrapper::before,
-#topbar-wrapper::before {
-  background: #06111f !important;
-}
-
-/* Footer fix */
-footer,
-#footer,
-#tail-wrapper {
-  background: #06111f !important;
-  border-top: 1px solid rgba(56, 189, 248, 0.25) !important;
-}
-
-/* Fix post card hover gray overlay */
-.post-preview,
-.post-preview:hover,
-.card,
-.card-wrapper {
-  background-color: #0b1a30 !important;
-}
-/* ===== Final cleanup: search + post excerpt fix ===== */
-
-/* Giữ search màu xám/đen mặc định, không neon quá */
-#search-input,
-input[type="search"],
-input.form-control,
-.form-control {
-  background-color: #161b22 !important;
-  border: 1px solid #30363d !important;
-  color: #c9d1d9 !important;
-  box-shadow: none !important;
-}
-
-#search-input::placeholder,
-input[type="search"]::placeholder,
-input.form-control::placeholder,
-.form-control::placeholder {
-  color: #8b949e !important;
-}
-
-/* Xóa nền đen xấu sau đoạn mô tả bài viết */
-.post-preview p,
-.post-preview .post-content,
-.post-preview .post-meta,
-.post-preview .post-meta span,
-.post-preview .post-meta a,
-.post-preview .post-meta em,
-.post-preview .post-meta time,
-.post-preview div,
-.post-preview span {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-/* Card bài viết đồng bộ màu */
-.post-preview {
-  background: #0b1a30 !important;
-  border: 1px solid rgba(56, 189, 248, 0.45) !important;
-  border-radius: 10px !important;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.12) !important;
-}
-
-/* Text trong card */
-.post-preview h1,
-.post-preview h2,
-.post-preview h3,
-.post-preview a {
-  color: #dbeafe !important;
-}
-
-.post-preview p {
-  color: #cbd5e1 !important;
-}
-
-/* Metadata trong card */
-.post-preview .post-meta,
-.post-preview .post-meta a,
-.post-preview .post-meta span,
-.post-preview .post-meta time {
-  color: #94a3b8 !important;
-}
-
-/* Không cho đoạn description bị highlight đen */
-.post-preview .post-content,
-.post-preview .post-content p,
-.post-preview .post-content span {
-  background: transparent !important;
-  color: #cbd5e1 !important;
-}
-/* ===== Final Override: Wider Sidebar + Clean Search ===== */
-
-/* 1. Kéo rộng sidebar trên desktop */
-@media (min-width: 1200px) {
-  :root {
-    --sidebar-width: 340px;
-  }
-
-  #sidebar {
-    width: 340px !important;
-    min-width: 340px !important;
-    max-width: 340px !important;
-  }
-
-  #main-wrapper {
-    margin-left: 340px !important;
-  }
-
-  #topbar-wrapper {
-    left: 340px !important;
-  }
-}
-
-/* 2. Cho tên không bị xuống dòng */
-#sidebar .site-title,
-#sidebar .site-title a {
-  white-space: nowrap !important;
-  font-size: 1.45rem !important;
-  line-height: 1.3 !important;
-  letter-spacing: 0.2px !important;
-}
-
-/* Nếu vẫn hơi dài thì giảm nhẹ font */
-@media (min-width: 1200px) and (max-width: 1500px) {
-  #sidebar .site-title,
-  #sidebar .site-title a {
-    font-size: 1.35rem !important;
-  }
-}
-
-/* 3. Làm subtitle gọn giống Kevin */
-#sidebar .site-subtitle {
-  white-space: nowrap !important;
-  font-size: 0.95rem !important;
-  color: #93c5fd !important;
-}
-
-/* 4. Search box: bỏ ô đen kỳ bên trong, giữ style xám sạch */
-#topbar #search,
-#topbar #search-wrapper,
-#topbar .search,
-#topbar .search-wrapper,
-#topbar form,
-#search,
-#search-wrapper {
-  background: #161b22 !important;
-  border: 1px solid #30363d !important;
-  border-radius: 999px !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
-}
-
-/* Input bên trong search phải trong suốt */
-#search-input,
-#topbar #search-input,
-#topbar input[type="search"],
-input[type="search"],
-input.form-control,
-.form-control {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: 0 !important;
-  outline: none !important;
-  box-shadow: none !important;
-  color: #c9d1d9 !important;
-}
-
-/* Icon/search addon nếu có */
-#topbar .input-group-text,
-#search .input-group-text,
-#search-wrapper .input-group-text,
-.search .input-group-text {
-  background: transparent !important;
-  border: 0 !important;
-  color: #8b949e !important;
-}
-
-/* Placeholder search */
-#search-input::placeholder,
-input[type="search"]::placeholder,
-input.form-control::placeholder,
-.form-control::placeholder {
-  color: #8b949e !important;
-}
-
-/* 5. Xóa nền đen sau description bài viết */
-.post-preview p,
-.post-preview .post-content,
-.post-preview .post-content p,
-.post-preview .post-content span,
-.post-preview .preview,
-.post-preview .preview p,
-.post-preview .preview span {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-
-/* Description màu dịu hơn */
-.post-preview p,
-.post-preview .post-content,
-.post-preview .preview {
-  color: #cbd5e1 !important;
-}
-/* ===== Final Override: Avatar bigger + centered profile ===== */
-
-/* Căn giữa toàn bộ profile trên sidebar */
-#sidebar .profile-wrapper,
-#sidebar .site-title,
-#sidebar .site-subtitle {
-  text-align: center !important;
-}
-
-/* Căn giữa avatar */
-#avatar,
-.site-avatar {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Phóng to avatar một chút */
-#avatar img,
-.site-avatar img {
-  width: 135px !important;
-  height: 135px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 2px solid rgba(56, 189, 248, 0.75) !important;
-  box-shadow: 0 0 22px rgba(56, 189, 248, 0.38) !important;
-}
-
-/* Tên nằm giữa, một dòng */
-#sidebar .site-title,
-#sidebar .site-title a {
-  text-align: center !important;
-  white-space: nowrap !important;
-  font-size: 1.35rem !important;
-  line-height: 1.25 !important;
-}
-
-/* Subtitle nằm giữa */
-#sidebar .site-subtitle {
-  text-align: center !important;
-  white-space: nowrap !important;
-  font-size: 0.92rem !important;
-  color: #93c5fd !important;
-}
-/* ===== Final Sidebar Profile Balance ===== */
-
-/* Sidebar width vừa đủ, không quá thô */
-@media (min-width: 1200px) {
-  :root {
-    --sidebar-width: 320px;
-  }
-
-  #sidebar {
-    width: 320px !important;
-    min-width: 320px !important;
-    max-width: 320px !important;
-  }
-
-  #main-wrapper {
-    margin-left: 320px !important;
-  }
-
-  #topbar-wrapper {
-    left: 320px !important;
-  }
-}
-
-/* Cụm profile đặt thấp xuống và cân giữa */
-#sidebar .profile-wrapper {
-  text-align: center !important;
-  margin-top: 3.2rem !important;
-  margin-bottom: 2.4rem !important;
-  padding-left: 1.2rem !important;
-  padding-right: 1.2rem !important;
-}
-
-/* Avatar to vừa phải, không bị lố */
-#avatar,
-.site-avatar {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin: 0 auto 1.35rem auto !important;
-}
-
-#avatar img,
-.site-avatar img {
-  width: 118px !important;
-  height: 118px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  border: 2px solid rgba(56, 189, 248, 0.65) !important;
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.30) !important;
-}
-
-/* Tên một dòng, cân giữa */
-#sidebar .site-title,
-#sidebar .site-title a {
-  display: block !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  font-size: 1.28rem !important;
-  line-height: 1.25 !important;
-  letter-spacing: 0.2px !important;
-  color: #dbeafe !important;
-  margin: 0 auto 0.65rem auto !important;
-}
-
-/* Tagline cân giữa, nhỏ hơn một chút */
-#sidebar .site-subtitle {
-  display: block !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  font-size: 0.86rem !important;
-  line-height: 1.35 !important;
-  color: #93c5fd !important;
-  margin: 0 auto !important;
-}
-
-/* Menu kéo xuống vừa phải, nhìn thoáng hơn */
-#sidebar ul.nav,
-#sidebar .nav {
-  margin-top: 2.1rem !important;
-}
-
-/* Nút menu vừa với sidebar mới */
-#sidebar .nav-link {
-  max-width: 240px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  border-radius: 10px !important;
-}
-
-/* Search: bỏ viền/ô lồng nhau kỳ cục, giữ xám đơn giản */
 #search,
 #search-wrapper,
 #topbar #search,
 #topbar #search-wrapper,
 #topbar form {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 #search-input,
 #topbar #search-input,
-input[type="search"],
-input.form-control,
-.form-control {
-  background-color: #161b22 !important;
-  border: 1px solid #30363d !important;
-  border-radius: 999px !important;
-  color: #c9d1d9 !important;
-  box-shadow: none !important;
-  outline: none !important;
+#topbar input.form-control,
+input[type="search"] {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 999px;
+  box-shadow: none;
+  color: #c9d1d9;
+  outline: none;
+}
+
+#search-input:focus,
+#topbar #search-input:focus,
+#topbar input.form-control:focus,
+input[type="search"]:focus {
+  background: #161b22;
+  border-color: #30363d;
+  box-shadow: none;
 }
 
 #search-input::placeholder,
-input[type="search"]::placeholder,
-input.form-control::placeholder,
-.form-control::placeholder {
-  color: #8b949e !important;
+#topbar input.form-control::placeholder,
+input[type="search"]::placeholder {
+  color: #8b949e;
+}
+
+#topbar .input-group-text,
+#search .input-group-text,
+#search-wrapper .input-group-text {
+  background: transparent;
+  border: 0;
+  color: #8b949e;
+}
+
+.post-preview {
+  padding: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-preview:hover {
+  border-color: rgba(56, 189, 248, 0.9);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.22);
+  transform: translateY(-2px);
+}
+
+.post-preview p,
+.post-preview .post-content,
+.post-preview .preview,
+.post-preview .preview p,
+.post-preview .post-meta,
+.post-preview span,
+.post-preview div {
+  background: transparent;
+}
+
+.post-preview h1,
+.post-preview h2,
+.post-preview h3,
+.post-preview a,
+.post-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-main);
+}
+
+.post-preview p,
+.post-content,
+.post-tail-wrapper,
+p,
+li,
+td,
+th {
+  color: #cbd5e1;
+}
+
+.post-meta,
+.text-muted,
+.post-preview .post-meta,
+.post-preview .post-meta a,
+.post-preview .post-meta span,
+.post-preview .post-meta time {
+  color: var(--text-muted);
+}
+
+.card,
+.card-wrapper,
+#panel-wrapper .card {
+  background: var(--card-bg);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 10px;
+}
+
+#panel-wrapper {
+  background: transparent;
+}
+
+#panel-wrapper .panel-heading,
+.panel-heading {
+  color: var(--text-main);
+}
+
+#panel-wrapper .post-tag,
+.post-tag {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+  color: #93c5fd;
+}
+
+footer,
+#footer {
+  background: var(--main-bg);
+  border-top: 1px solid rgba(59, 130, 246, 0.25);
+  color: var(--text-muted);
+}
+
+pre,
+code {
+  background: #111827;
+  color: var(--text-main);
+  border-radius: 8px;
+}
+
+.highlight {
+  background: #111827;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 8px;
+}
+
+.pagination .page-item .page-link {
+  background: var(--card-bg);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #93c5fd;
+}
+
+.pagination .page-item.active .page-link {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  #sidebar {
+    width: var(--sidebar-width);
+  }
+
+  #main-wrapper {
+    margin-left: var(--sidebar-width);
+  }
+
+  #topbar-wrapper {
+    left: var(--sidebar-width);
+  }
+}
+
+@media (max-width: 420px) {
+  #sidebar .site-title,
+  #sidebar .site-title a {
+    font-size: 1.18rem;
+  }
+
+  #avatar img,
+  .site-avatar img {
+    width: 112px;
+    height: 112px;
+  }
 }
