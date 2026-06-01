@@ -584,3 +584,122 @@ input.form-control::placeholder,
   font-size: 0.92rem !important;
   color: #93c5fd !important;
 }
+/* ===== Final Sidebar Profile Balance ===== */
+
+/* Sidebar width vừa đủ, không quá thô */
+@media (min-width: 1200px) {
+  :root {
+    --sidebar-width: 320px;
+  }
+
+  #sidebar {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+  }
+
+  #main-wrapper {
+    margin-left: 320px !important;
+  }
+
+  #topbar-wrapper {
+    left: 320px !important;
+  }
+}
+
+/* Cụm profile đặt thấp xuống và cân giữa */
+#sidebar .profile-wrapper {
+  text-align: center !important;
+  margin-top: 3.2rem !important;
+  margin-bottom: 2.4rem !important;
+  padding-left: 1.2rem !important;
+  padding-right: 1.2rem !important;
+}
+
+/* Avatar to vừa phải, không bị lố */
+#avatar,
+.site-avatar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto 1.35rem auto !important;
+}
+
+#avatar img,
+.site-avatar img {
+  width: 118px !important;
+  height: 118px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(56, 189, 248, 0.65) !important;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.30) !important;
+}
+
+/* Tên một dòng, cân giữa */
+#sidebar .site-title,
+#sidebar .site-title a {
+  display: block !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 1.28rem !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.2px !important;
+  color: #dbeafe !important;
+  margin: 0 auto 0.65rem auto !important;
+}
+
+/* Tagline cân giữa, nhỏ hơn một chút */
+#sidebar .site-subtitle {
+  display: block !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  font-size: 0.86rem !important;
+  line-height: 1.35 !important;
+  color: #93c5fd !important;
+  margin: 0 auto !important;
+}
+
+/* Menu kéo xuống vừa phải, nhìn thoáng hơn */
+#sidebar ul.nav,
+#sidebar .nav {
+  margin-top: 2.1rem !important;
+}
+
+/* Nút menu vừa với sidebar mới */
+#sidebar .nav-link {
+  max-width: 240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  border-radius: 10px !important;
+}
+
+/* Search: bỏ viền/ô lồng nhau kỳ cục, giữ xám đơn giản */
+#search,
+#search-wrapper,
+#topbar #search,
+#topbar #search-wrapper,
+#topbar form {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#search-input,
+#topbar #search-input,
+input[type="search"],
+input.form-control,
+.form-control {
+  background-color: #161b22 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 999px !important;
+  color: #c9d1d9 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#search-input::placeholder,
+input[type="search"]::placeholder,
+input.form-control::placeholder,
+.form-control::placeholder {
+  color: #8b949e !important;
+}
