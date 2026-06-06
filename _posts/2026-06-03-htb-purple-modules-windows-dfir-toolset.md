@@ -1,30 +1,30 @@
-﻿---
+---
 layout: post
-title: "HTB Academy Purple Modules vÃ  Windows DFIR Toolset"
+title: "HTB Academy Purple Modules và Windows DFIR Toolset"
 date: 2026-06-03 04:00:00 +0700
 categories: [Purple Team, DFIR]
-tags: [purple-team, dfir, htb-academy, windows-forensics, velociraptor, sysmon, yara, volatility, blue-team, red-team]
-description: "Ghi chÃº tá»•ng há»£p vá» HTB Academy Purple Modules, lá»£i Ã­ch cho Blue Team/Red Team/Purple Team vÃ  bá»™ cÃ´ng cá»¥ Windows DFIR Ä‘Æ°á»£c cÃ i sáºµn."
+tags: [purple-team, dfir, htb-academy, windows-forensics, velociraptor, sysmon, yara, sigma, volatility, blue-team, red-team]
+description: "Ghi chú tổng hợp về HTB Academy Purple Modules, lợi ích cho Blue Team/Red Team/Purple Team và bộ công cụ Windows DFIR được cài sẵn."
 toc: true
 ---
 
-# HTB Academy Purple Modules vÃ  Windows DFIR Toolset
+# HTB Academy Purple Modules và Windows DFIR Toolset
 
-BÃ i nÃ y tá»•ng há»£p pháº§n giá»›i thiá»‡u vá» **HTB Academy Purple Modules** vÃ  bá»™ cÃ´ng cá»¥ **Windows DFIR Toolset** Ä‘Æ°á»£c cÃ i sáºµn trong cÃ¡c má»¥c tiÃªu Windows Purple Module.
+Bài này tổng hợp phần giới thiệu về **HTB Academy Purple Modules** và bộ công cụ **Windows DFIR Toolset** được cài sẵn trong các mục tiêu Windows Purple Module.
 
-Purple Module giÃºp ngÆ°á»i há»c nhÃ¬n váº¥n Ä‘á» tá»« cáº£ hai phÃ­a:
+Purple Module giúp người học nhìn vấn đề từ cả hai phía:
 
-- **Red Team**: thá»±c hiá»‡n táº¥n cÃ´ng, mÃ´ phá»ng hÃ nh vi adversary.
-- **Blue Team**: Ä‘iá»u tra, thu tháº­p log, phÃ¢n tÃ­ch artifact vÃ  xÃ¢y dá»±ng detection.
-- **Purple Team**: káº¿t há»£p hai bÃªn Ä‘á»ƒ cáº£i thiá»‡n nÄƒng lá»±c phÃ²ng thá»§.
+- **Red Team**: thực hiện tấn công, mô phỏng hành vi adversary.
+- **Blue Team**: điều tra, thu thập log, phân tích artifact và xây dựng detection.
+- **Purple Team**: kết hợp hai bên để cải thiện năng lực phòng thủ.
 
 ---
 
-# 1. Giá»›i thiá»‡u vá» Purple Modules
+## 1. Giới thiệu về Purple Modules
 
-Trong HTB Academy, **Purple Modules** lÃ  cÃ¡c mÃ´-Ä‘un káº¿t há»£p giá»¯a tÆ° duy táº¥n cÃ´ng vÃ  phÃ²ng thá»§.
+Trong HTB Academy, **Purple Modules** là các mô-đun kết hợp giữa tư duy tấn công và phòng thủ.
 
-CÃ¡c mÃ´-Ä‘un nÃ y giÃºp thu háº¹p khoáº£ng cÃ¡ch giá»¯a:
+Các mô-đun này giúp thu hẹp khoảng cách giữa:
 
 ```text
 Offensive Security
@@ -34,22 +34,22 @@ Defensive Security
 Purple Team Learning
 ```
 
-Má»¥c tiÃªu lÃ  giÃºp ngÆ°á»i há»c khÃ´ng chá»‰ biáº¿t cÃ¡ch táº¥n cÃ´ng, mÃ  cÃ²n hiá»ƒu:
+Mục tiêu là giúp người học không chỉ biết cách tấn công, mà còn hiểu:
 
-- Cuá»™c táº¥n cÃ´ng Ä‘á»ƒ láº¡i log gÃ¬.
-- Artifact nÃ o Ä‘Æ°á»£c táº¡o ra.
-- Network traffic cÃ³ dáº¥u hiá»‡u gÃ¬.
-- Memory dump cÃ³ thá»ƒ chá»©a báº±ng chá»©ng gÃ¬.
-- CÃ´ng cá»¥ DFIR nÃ o cÃ³ thá»ƒ dÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch.
-- Detection rule nÃ o cÃ³ thá»ƒ viáº¿t sau khi quan sÃ¡t hÃ nh vi táº¥n cÃ´ng.
+- Cuộc tấn công để lại log gì.
+- Artifact nào được tạo ra.
+- Network traffic có dấu hiệu gì.
+- Memory dump có thể chứa bằng chứng gì.
+- Công cụ DFIR nào có thể dùng để phân tích.
+- Detection rule nào có thể viết sau khi quan sát hành vi tấn công.
 
 ---
 
-# 2. VÃ¬ sao cáº§n thá»±c hiá»‡n pháº§n táº¥n cÃ´ng trÆ°á»›c?
+## 2. Vì sao cần thực hiện phần tấn công trước?
 
-PhÃ¢n tÃ­ch phÃ¡p y cáº§n cÃ³ dá»¯ liá»‡u.
+Phân tích pháp y cần có dữ liệu.
 
-VÃ¬ váº­y, trong Purple Module, pháº§n táº¥n cÃ´ng thÆ°á»ng pháº£i xáº£y ra trÆ°á»›c Ä‘á»ƒ táº¡o ra:
+Vì vậy, trong Purple Module, phần tấn công thường phải xảy ra trước để tạo ra:
 
 - Log.
 - Event.
@@ -60,199 +60,193 @@ VÃ¬ váº­y, trong Purple Module, pháº§n táº¥n cÃ´ng thÆ°á»ng p
 - Registry change.
 - Detection telemetry.
 
-Sau khi cÃ³ dá»¯ liá»‡u, ngÆ°á»i há»c má»›i cÃ³ thá»ƒ thá»±c hiá»‡n pháº§n Ä‘iá»u tra vÃ  phÃ¢n tÃ­ch forensic.
+Sau khi có dữ liệu, người học mới có thể thực hiện phần điều tra và phân tích forensic.
 
-VÃ­ dá»¥:
+Ví dụ:
 
 ```text
 Attack executed
-      â†“
+      ↓
 Logs generated
-      â†“
+      ↓
 Traffic captured
-      â†“
+      ↓
 Memory can be dumped
-      â†“
+      ↓
 DFIR analysis begins
 ```
 
-Äiá»u nÃ y cÅ©ng Ã¡p dá»¥ng cho **memory dump**. Bá»™ nhá»› chá»‰ cÃ³ Ã½ nghÄ©a phÃ¢n tÃ­ch náº¿u sau khi attack xáº£y ra, target váº«n cÃ²n hoáº¡t Ä‘á»™ng vÃ  dá»¯ liá»‡u váº«n cÃ²n tá»“n táº¡i trong RAM.
+Điều này cũng áp dụng cho **memory dump**. Bộ nhớ chỉ có ý nghĩa phân tích nếu sau khi attack xảy ra, target vẫn còn hoạt động và dữ liệu vẫn còn tồn tại trong RAM.
 
 ---
 
-# 3. LÆ°u Ã½ khi dÃ¹ng Purple Module Targets
+## 3. Lưu ý khi dùng Purple Module Targets
 
-Khi spawn target trong HTB Academy, má»¥c tiÃªu cáº§n Ä‘Æ°á»£c giá»¯ hoáº¡t Ä‘á»™ng Ä‘á»§ lÃ¢u Ä‘á»ƒ phá»¥c vá»¥ forensic.
+Khi spawn target trong HTB Academy, mục tiêu cần được giữ hoạt động đủ lâu để phục vụ forensic.
 
-Má»™t sá»‘ lÆ°u Ã½:
+Một số lưu ý:
 
-- Target pháº£i tiáº¿p tá»¥c cháº¡y sau khi attack xáº£y ra.
-- KhÃ´ng táº¯t target quÃ¡ sá»›m.
-- CÃ³ thá»ƒ cáº§n kÃ©o dÃ i thá»i gian target.
-- Má»™t sá»‘ service cáº§n vÃ i phÃºt Ä‘á»ƒ khá»Ÿi Ä‘á»™ng Ä‘áº§y Ä‘á»§.
-- Náº¿u target táº¯t, log/traffic/memory artifact cÃ³ thá»ƒ máº¥t hoáº·c khÃ´ng cÃ²n Ä‘áº§y Ä‘á»§.
+- Target phải tiếp tục chạy sau khi attack xảy ra.
+- Không tắt target quá sớm.
+- Có thể cần kéo dài thời gian target.
+- Một số service cần vài phút để khởi động đầy đủ.
+- Nếu target tắt, log/traffic/memory artifact có thể mất hoặc không còn đầy đủ.
 
-NÃ³i ngáº¯n gá»n:
+Nói ngắn gọn:
 
 ```text
-Attack xong chÆ°a nÃªn táº¯t mÃ¡y.
-Cáº§n giá»¯ target sá»‘ng Ä‘á»ƒ Ä‘iá»u tra.
+Attack xong chưa nên tắt máy.
+Cần giữ target sống để điều tra.
 ```
 
 ---
 
-# 4. Cáº¥u trÃºc Purple Module
+## 4. Cấu trúc Purple Module
 
-MÃ´-Ä‘un Ä‘Æ°á»£c chia thÃ nh hai pháº§n chÃ­nh:
+Mô-đun được chia thành hai phần chính:
 
 ```text
 Windows Purple Module Targets
 Linux Purple Module Targets
 ```
 
-Má»—i pháº§n cung cáº¥p hÆ°á»›ng dáº«n tham kháº£o Ä‘á»ƒ ngÆ°á»i há»c biáº¿t cÃ¡ch:
+Mỗi phần cung cấp hướng dẫn tham khảo để người học biết cách:
 
-- Truy cáº­p target.
-- Cáº¥u hÃ¬nh cÆ¡ cháº¿ logging.
-- XÃ¡c Ä‘á»‹nh vá»‹ trÃ­ log.
-- Thu tháº­p network traffic.
-- Táº¡o memory dump.
-- TÃ¬m file cáº¥u hÃ¬nh.
-- Sá»­ dá»¥ng cÃ´ng cá»¥ DFIR Ä‘Æ°á»£c cÃ i sáºµn.
-- PhÃ¢n tÃ­ch artifact sau khai thÃ¡c.
-
----
-
-# 5. Lá»£i Ã­ch cá»§a Purple Modules
-
-Purple Modules cÃ³ lá»£i cho cáº£ Blue Team, Red Team vÃ  Purple Team.
+- Truy cập target.
+- Cấu hình cơ chế logging.
+- Xác định vị trí log.
+- Thu thập network traffic.
+- Tạo memory dump.
+- Tìm file cấu hình.
+- Sử dụng công cụ DFIR được cài sẵn.
+- Phân tích artifact sau khai thác.
 
 ---
 
-## 5.1. Lá»£i Ã­ch cho Blue Team
+## 5. Lợi ích của Purple Modules
 
-Äá»‘i vá»›i Blue Team, Purple Module giÃºp:
+Purple Modules có lợi cho cả Blue Team, Red Team và Purple Team.
 
-- Hiá»ƒu chiáº¿n thuáº­t vÃ  ká»¹ thuáº­t cá»§a Red Team.
-- Quan sÃ¡t attack artifact thá»±c táº¿.
-- PhÃ¢n tÃ­ch log sau khai thÃ¡c.
-- TÃ¬m IOC.
-- XÃ¢y dá»±ng detection rule.
-- Kiá»ƒm tra giáº£ thuyáº¿t threat hunting.
-- PhÃ¡t triá»ƒn incident response playbook.
-- Hiá»ƒu cÃ¡ch attacker di chuyá»ƒn vÃ  Ä‘á»ƒ láº¡i dáº¥u váº¿t.
+### 5.1. Lợi ích cho Blue Team
 
-VÃ­ dá»¥ use case:
+Đối với Blue Team, Purple Module giúp:
+
+- Hiểu chiến thuật và kỹ thuật của Red Team.
+- Quan sát attack artifact thực tế.
+- Phân tích log sau khai thác.
+- Tìm IOC.
+- Xây dựng detection rule.
+- Kiểm tra giả thuyết threat hunting.
+- Phát triển incident response playbook.
+- Hiểu cách attacker di chuyển và để lại dấu vết.
+
+Ví dụ use case:
 
 ```text
-Blue Team mÃ´ phá»ng táº¥n cÃ´ng
-        â†“
-Thu tháº­p log vÃ  artifact
-        â†“
-PhÃ¢n tÃ­ch IOC
-        â†“
-Viáº¿t detection rule
-        â†“
-Kiá»ƒm tra láº¡i detection
+Blue Team mô phỏng tấn công
+        ↓
+Thu thập log và artifact
+        ↓
+Phân tích IOC
+        ↓
+Viết detection rule
+        ↓
+Kiểm tra lại detection
 ```
 
----
+### 5.2. Lợi ích cho Red Team
 
-## 5.2. Lá»£i Ã­ch cho Red Team
+Đối với Red Team, Purple Module giúp hiểu rõ hơn cuộc tấn công của mình để lại dấu vết gì.
 
-Äá»‘i vá»›i Red Team, Purple Module giÃºp hiá»ƒu rÃµ hÆ¡n cuá»™c táº¥n cÃ´ng cá»§a mÃ¬nh Ä‘á»ƒ láº¡i dáº¥u váº¿t gÃ¬.
+Red Team có thể:
 
-Red Team cÃ³ thá»ƒ:
+- Kiểm tra payload tự viết.
+- Quan sát log được tạo ra.
+- Quan sát process behavior.
+- Xem telemetry từ endpoint.
+- Hiểu tool của mình bị phát hiện ở đâu.
+- Tinh chỉnh kỹ thuật để giảm dấu vết.
+- Cải thiện OPSEC.
 
-- Kiá»ƒm tra payload tá»± viáº¿t.
-- Quan sÃ¡t log Ä‘Æ°á»£c táº¡o ra.
-- Quan sÃ¡t process behavior.
-- Xem telemetry tá»« endpoint.
-- Hiá»ƒu tool cá»§a mÃ¬nh bá»‹ phÃ¡t hiá»‡n á»Ÿ Ä‘Ã¢u.
-- Tinh chá»‰nh ká»¹ thuáº­t Ä‘á»ƒ giáº£m dáº¥u váº¿t.
-- Cáº£i thiá»‡n OPSEC.
-
-VÃ­ dá»¥:
+Ví dụ:
 
 ```text
 Run payload
-      â†“
+      ↓
 Check logs and telemetry
-      â†“
+      ↓
 Identify detection points
-      â†“
+      ↓
 Refine technique
 ```
 
----
+### 5.3. Lợi ích cho Purple Team
 
-## 5.3. Lá»£i Ã­ch cho Purple Team
+Đối với Purple Team, các target này là môi trường chia sẻ giữa Red Team và Blue Team.
 
-Äá»‘i vá»›i Purple Team, cÃ¡c target nÃ y lÃ  mÃ´i trÆ°á»ng chia sáº» giá»¯a Red Team vÃ  Blue Team.
+Cả hai bên có thể cùng:
 
-Cáº£ hai bÃªn cÃ³ thá»ƒ cÃ¹ng:
+- Mô phỏng attack chain.
+- Quan sát detection.
+- Kiểm tra logging.
+- Kiểm tra alert.
+- Xây dựng detection.
+- Tối ưu response playbook.
+- Cải thiện khả năng phòng thủ.
 
-- MÃ´ phá»ng attack chain.
-- Quan sÃ¡t detection.
-- Kiá»ƒm tra logging.
-- Kiá»ƒm tra alert.
-- XÃ¢y dá»±ng detection.
-- Tá»‘i Æ°u response playbook.
-- Cáº£i thiá»‡n kháº£ nÄƒng phÃ²ng thá»§.
-
-Purple Team khÃ´ng chá»‰ há»i:
+Purple Team không chỉ hỏi:
 
 ```text
-CÃ³ táº¥n cÃ´ng Ä‘Æ°á»£c khÃ´ng?
+Có tấn công được không?
 ```
 
-MÃ  cÃ²n há»i:
+Mà còn hỏi:
 
 ```text
-CÃ³ phÃ¡t hiá»‡n Ä‘Æ°á»£c khÃ´ng?
-Náº¿u khÃ´ng phÃ¡t hiá»‡n Ä‘Æ°á»£c thÃ¬ thiáº¿u log nÃ o?
-Náº¿u phÃ¡t hiá»‡n Ä‘Æ°á»£c thÃ¬ quy trÃ¬nh pháº£n á»©ng cÃ³ tá»‘t khÃ´ng?
+Có phát hiện được không?
+Nếu không phát hiện được thì thiếu log nào?
+Nếu phát hiện được thì quy trình phản ứng có tốt không?
 ```
 
 ---
 
-# 6. Purple Module Targets lÃ  háº¡ táº§ng cÃ³ thá»ƒ tÃ¡i sá»­ dá»¥ng
+## 6. Purple Module Targets là hạ tầng có thể tái sử dụng
 
-CÃ¡c Purple Module Targets cÃ³ thá»ƒ Ä‘Æ°á»£c dÃ¹ng láº¡i nhÆ° má»™t mÃ´i trÆ°á»ng thá»±c hÃ nh DFIR.
+Các Purple Module Targets có thể được dùng lại như một môi trường thực hành DFIR.
 
-Blue Team cÃ³ thá»ƒ:
+Blue Team có thể:
 
-- Chuyá»ƒn báº±ng chá»©ng tá»« mÃ¡y bá»‹ compromise khÃ¡c sang target Ä‘á»ƒ phÃ¢n tÃ­ch.
-- CÃ i pháº§n má»m dá»… bá»‹ táº¥n cÃ´ng.
-- MÃ´ phá»ng táº¥n cÃ´ng.
-- PhÃ¢n tÃ­ch artifact Ä‘á»ƒ láº¡i.
-- XÃ¡c Ä‘á»‹nh IOC.
-- PhÃ¡t triá»ƒn detection rule.
-- Kiá»ƒm thá»­ threat hunting hypothesis.
-- Thu tháº­p telemetry Ä‘á»ƒ phÃ¢n tÃ­ch hÃ nh vi malware.
-- Thiáº¿t káº¿ incident response playbook.
+- Chuyển bằng chứng từ máy bị compromise khác sang target để phân tích.
+- Cài phần mềm dễ bị tấn công.
+- Mô phỏng tấn công.
+- Phân tích artifact để lại.
+- Xác định IOC.
+- Phát triển detection rule.
+- Kiểm thử threat hunting hypothesis.
+- Thu thập telemetry để phân tích hành vi malware.
+- Thiết kế incident response playbook.
 
-Red Team cÃ³ thá»ƒ:
+Red Team có thể:
 
 - Test payload.
-- Quan sÃ¡t log.
-- Quan sÃ¡t process behavior.
-- Kiá»ƒm tra telemetry.
-- Äiá»u chá»‰nh ká»¹ thuáº­t Ä‘á»ƒ giáº£m kháº£ nÄƒng bá»‹ phÃ¡t hiá»‡n.
+- Quan sát log.
+- Quan sát process behavior.
+- Kiểm tra telemetry.
+- Điều chỉnh kỹ thuật để giảm khả năng bị phát hiện.
 
-Purple Team cÃ³ thá»ƒ:
+Purple Team có thể:
 
-- MÃ´ phá»ng Ä‘áº§y Ä‘á»§ attack-detect-response cycle.
-- DÃ¹ng target nhÆ° ná»n táº£ng há»c táº­p chung.
-- Kiá»ƒm tra kháº£ nÄƒng phÃ²ng thá»§ trong mÃ´i trÆ°á»ng Ä‘Æ°á»£c kiá»ƒm soÃ¡t.
+- Mô phỏng đầy đủ attack-detect-response cycle.
+- Dùng target như nền tảng học tập chung.
+- Kiểm tra khả năng phòng thủ trong môi trường được kiểm soát.
 
 ---
 
-# 7. Available Windows DFIR Toolset
+## 7. Available Windows DFIR Toolset
 
-Pháº§n nÃ y tá»•ng há»£p cÃ¡c cÃ´ng cá»¥ DFIR Ä‘Æ°á»£c cÃ i sáºµn trÃªn **Windows Purple Module Targets**.
+Phần này tổng hợp các công cụ DFIR được cài sẵn trên **Windows Purple Module Targets**.
 
-CÃ¡c cÃ´ng cá»¥ nÃ y phá»¥c vá»¥ phÃ¢n tÃ­ch sau khai thÃ¡c, bao gá»“m:
+Các công cụ này phục vụ phân tích sau khai thác, bao gồm:
 
 - System monitoring.
 - Log analysis.
@@ -265,17 +259,17 @@ CÃ¡c cÃ´ng cá»¥ nÃ y phá»¥c vá»¥ phÃ¢n tÃ­ch sau khai thÃ¡c
 
 ---
 
-# 8. System Monitoring
+## 8. System Monitoring
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Sysmon | `C:\Windows\Sysmon64.exe` | Ghi log chi tiáº¿t phá»¥c vá»¥ detection vÃ  forensic |
+| Sysmon | `C:\Windows\Sysmon64.exe` | Ghi log chi tiết phục vụ detection và forensic |
 
-## Sysmon lÃ  gÃ¬?
+### Sysmon là gì?
 
-**Sysmon** lÃ  cÃ´ng cá»¥ cá»§a Microsoft Sysinternals giÃºp ghi láº¡i nhiá»u sá»± kiá»‡n quan trá»ng trÃªn Windows.
+**Sysmon** là công cụ của Microsoft Sysinternals giúp ghi lại nhiều sự kiện quan trọng trên Windows.
 
-Sysmon cÃ³ thá»ƒ ghi:
+Sysmon có thể ghi:
 
 - Process creation.
 - Network connection.
@@ -286,21 +280,21 @@ Sysmon cÃ³ thá»ƒ ghi:
 - Process injection indicators.
 - DNS query.
 
-Sysmon ráº¥t há»¯u Ã­ch cho SOC vÃ¬ Windows Event Log máº·c Ä‘á»‹nh Ä‘Ã´i khi khÃ´ng Ä‘á»§ chi tiáº¿t Ä‘á»ƒ Ä‘iá»u tra attack behavior.
+Sysmon rất hữu ích cho SOC vì Windows Event Log mặc định đôi khi không đủ chi tiết để điều tra attack behavior.
 
 ---
 
-# 9. Log Analysis
+## 9. Log Analysis
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Eric Zimmerman Tools | `C:\Tools\EZ-Tools` | Bá»™ cÃ´ng cá»¥ forensic Ä‘á»ƒ phÃ¢n tÃ­ch registry hives, event logs vÃ  artifact sá»‘ |
+| Eric Zimmerman Tools | `C:\Tools\EZ-Tools` | Bộ công cụ forensic để phân tích registry hives, event logs và artifact số |
 
-## Eric Zimmerman Tools
+### Eric Zimmerman Tools
 
-**Eric Zimmerman Tools** lÃ  bá»™ cÃ´ng cá»¥ ráº¥t phá»• biáº¿n trong Windows forensic.
+**Eric Zimmerman Tools** là bộ công cụ rất phổ biến trong Windows forensic.
 
-Má»™t sá»‘ tool ná»•i báº­t:
+Một số tool nổi bật:
 
 - EvtxECmd.
 - RECmd.
@@ -310,7 +304,7 @@ Má»™t sá»‘ tool ná»•i báº­t:
 - PECmd.
 - Timeline Explorer.
 
-DÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch:
+Dùng để phân tích:
 
 - Windows Event Logs.
 - Registry.
@@ -322,73 +316,63 @@ DÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch:
 
 ---
 
-# 10. Threat Detection & Monitoring
+## 10. Threat Detection & Monitoring
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Yara | `C:\Tools\yara\yara.exe` | Scan file dá»±a trÃªn signature |
+| Yara | `C:\Tools\yara\yara.exe` | Scan file dựa trên signature |
 | Chainsaw | `C:\Tools\Sigma\chainsaw\chainsaw_x86_64-pc-windows-msvc.exe` | Hunt qua Windows Event Logs |
-| Sigma | `C:\Program Files\Python312\Scripts\sigma.exe` | Äá»‹nh dáº¡ng rule chung cho SIEM |
-| Zircolite | `C:\Tools\Sigma\zircolite\zircolite_win_x64_2.20.0.exe` | PhÃ¢n tÃ­ch EVTX dá»±a trÃªn Sigma |
-| Osquery | `C:\Program Files\osquery\osqueryi.exe` | Query endpoint báº±ng cÃº phÃ¡p giá»‘ng SQL |
-| Velociraptor | `C:\Program Files\Velociraptor` | Endpoint monitoring, collection vÃ  response |
+| Sigma | `C:\Program Files\Python312\Scripts\sigma.exe` | Định dạng rule chung cho SIEM |
+| Zircolite | `C:\Tools\Sigma\zircolite\zircolite_win_x64_2.20.0.exe` | Phân tích EVTX dựa trên Sigma |
+| Osquery | `C:\Program Files\osquery\osqueryi.exe` | Query endpoint bằng cú pháp giống SQL |
+| Velociraptor | `C:\Program Files\Velociraptor` | Endpoint monitoring, collection và response |
 
----
+### Yara
 
-## Yara
+**Yara** là công cụ dùng để nhận diện file hoặc malware dựa trên rule/signature.
 
-**Yara** lÃ  cÃ´ng cá»¥ dÃ¹ng Ä‘á»ƒ nháº­n diá»‡n file hoáº·c malware dá»±a trÃªn rule/signature.
+Yara thường dùng để:
 
-Yara thÆ°á»ng dÃ¹ng Ä‘á»ƒ:
-
-- TÃ¬m malware theo chuá»—i Ä‘áº·c trÆ°ng.
-- Scan folder nghi ngá».
+- Tìm malware theo chuỗi đặc trưng.
+- Scan folder nghi ngờ.
 - Hunt file theo pattern.
-- Táº¡o IOC dá»±a trÃªn sample Ä‘Ã£ phÃ¢n tÃ­ch.
+- Tạo IOC dựa trên sample đã phân tích.
 
----
+### Chainsaw
 
-## Chainsaw
+**Chainsaw** là công cụ command-line dùng để phân tích và hunt trong Windows Event Logs.
 
-**Chainsaw** lÃ  cÃ´ng cá»¥ command-line dÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch vÃ  hunt trong Windows Event Logs.
+Chainsaw thường kết hợp với Sigma rule để phát hiện hành vi đáng ngờ trong file `.evtx`.
 
-Chainsaw thÆ°á»ng káº¿t há»£p vá»›i Sigma rule Ä‘á»ƒ phÃ¡t hiá»‡n hÃ nh vi Ä‘Ã¡ng ngá» trong file `.evtx`.
+### Sigma
 
----
+**Sigma** là định dạng rule chung cho detection.
 
-## Sigma
-
-**Sigma** lÃ  Ä‘á»‹nh dáº¡ng rule chung cho detection.
-
-CÃ³ thá»ƒ hiá»ƒu Sigma giá»‘ng nhÆ°:
+Có thể hiểu Sigma giống như:
 
 ```text
 YARA for logs
 ```
 
-Sigma rule cÃ³ thá»ƒ Ä‘Æ°á»£c chuyá»ƒn Ä‘á»•i sang nhiá»u SIEM khÃ¡c nhau nhÆ° Splunk, Elastic, Sentinel, QRadar.
+Sigma rule có thể được chuyển đổi sang nhiều SIEM khác nhau như Splunk, Elastic, Sentinel, QRadar.
 
----
+### Zircolite
 
-## Zircolite
+**Zircolite** dùng để phân tích Windows EVTX log dựa trên Sigma rule.
 
-**Zircolite** dÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch Windows EVTX log dá»±a trÃªn Sigma rule.
+Nó hữu ích khi analyst có file event log offline và muốn nhanh chóng tìm hành vi đáng ngờ.
 
-NÃ³ há»¯u Ã­ch khi analyst cÃ³ file event log offline vÃ  muá»‘n nhanh chÃ³ng tÃ¬m hÃ nh vi Ä‘Ã¡ng ngá».
+### Osquery
 
----
+**Osquery** cho phép query endpoint bằng cú pháp giống SQL.
 
-## Osquery
-
-**Osquery** cho phÃ©p query endpoint báº±ng cÃº phÃ¡p giá»‘ng SQL.
-
-VÃ­ dá»¥:
+Ví dụ:
 
 ```sql
 SELECT name, path, pid FROM processes;
 ```
 
-DÃ¹ng Ä‘á»ƒ kiá»ƒm tra:
+Dùng để kiểm tra:
 
 - Process.
 - Service.
@@ -397,40 +381,38 @@ DÃ¹ng Ä‘á»ƒ kiá»ƒm tra:
 - Scheduled task.
 - Installed software.
 
----
+### Velociraptor
 
-## Velociraptor
+**Velociraptor** là nền tảng endpoint monitoring, collection và response.
 
-**Velociraptor** lÃ  ná»n táº£ng endpoint monitoring, collection vÃ  response.
-
-Truy cáº­p Velociraptor:
+Truy cập Velociraptor:
 
 ```text
 https://<Target_IP>:8889
 ```
 
-ThÃ´ng tin Ä‘Äƒng nháº­p:
+Thông tin đăng nhập:
 
 ```text
 Username: admin
 Password: P3n#31337@LOG
 ```
 
-LÆ°u Ã½: sau khi spawn Windows Purple target, nÃªn chá» Ã­t nháº¥t **5 phÃºt** Ä‘á»ƒ cÃ¡c service khá»Ÿi Ä‘á»™ng Ä‘áº§y Ä‘á»§, bao gá»“m Velociraptor.
+Lưu ý: sau khi spawn Windows Purple target, nên chờ ít nhất **5 phút** để các service khởi động đầy đủ, bao gồm Velociraptor.
 
 ---
 
-# 11. Traffic Capturing
+## 11. Traffic Capturing
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Wireshark | `C:\Program Files\Wireshark` | Báº¯t vÃ  phÃ¢n tÃ­ch gÃ³i tin máº¡ng |
+| Wireshark | `C:\Program Files\Wireshark` | Bắt và phân tích gói tin mạng |
 
-## Wireshark
+### Wireshark
 
-**Wireshark** dÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch traffic máº¡ng.
+**Wireshark** dùng để phân tích traffic mạng.
 
-CÃ³ thá»ƒ dÃ¹ng Ä‘á»ƒ kiá»ƒm tra:
+Có thể dùng để kiểm tra:
 
 - DNS query.
 - HTTP request.
@@ -443,21 +425,21 @@ CÃ³ thá»ƒ dÃ¹ng Ä‘á»ƒ kiá»ƒm tra:
 
 ---
 
-# 12. Memory Dumping
+## 12. Memory Dumping
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| DumpIt | `C:\Tools\Memory-Dump\DumpIt.exe` | Táº¡o memory dump phá»¥c vá»¥ memory forensic |
-| WinPmem | `C:\Tools\Memory-Dump\winpmem_mini_x64_rc2.exe` | Táº¡o memory dump phá»¥c vá»¥ memory forensic |
+| DumpIt | `C:\Tools\Memory-Dump\DumpIt.exe` | Tạo memory dump phục vụ memory forensic |
+| WinPmem | `C:\Tools\Memory-Dump\winpmem_mini_x64_rc2.exe` | Tạo memory dump phục vụ memory forensic |
 
-## Memory Dump lÃ  gÃ¬?
+### Memory Dump là gì?
 
-**Memory dump** lÃ  báº£n chá»¥p ná»™i dung RAM táº¡i má»™t thá»i Ä‘iá»ƒm.
+**Memory dump** là bản chụp nội dung RAM tại một thời điểm.
 
-Memory dump cÃ³ thá»ƒ chá»©a:
+Memory dump có thể chứa:
 
-- Process Ä‘ang cháº¡y.
-- Malware cháº¡y trong memory.
+- Process đang chạy.
+- Malware chạy trong memory.
 - Network connection.
 - Credential.
 - Command history.
@@ -467,18 +449,18 @@ Memory dump cÃ³ thá»ƒ chá»©a:
 
 ---
 
-# 13. Memory Forensics
+## 13. Memory Forensics
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Volatility v2 | `C:\Tools\Volatility2` | PhÃ¢n tÃ­ch memory dump |
-| Volatility v3 | `C:\Tools\volatility3` | PhÃ¢n tÃ­ch memory dump |
+| Volatility v2 | `C:\Tools\Volatility2` | Phân tích memory dump |
+| Volatility v3 | `C:\Tools\volatility3` | Phân tích memory dump |
 
-## Volatility
+### Volatility
 
-**Volatility** lÃ  cÃ´ng cá»¥ memory forensic phá»• biáº¿n.
+**Volatility** là công cụ memory forensic phổ biến.
 
-DÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch:
+Dùng để phân tích:
 
 - Process list.
 - Network connection.
@@ -491,27 +473,25 @@ DÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch:
 
 ---
 
-# 14. Additional Telemetry
+## 14. Additional Telemetry
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
 | SilkETW | `C:\Tools\SilkETW\SilkETW\SilkETW.exe` | C# wrapper cho ETW |
-| SealighterTI | `C:\Tools\SealighterTI.exe` | Cháº¡y Microsoft-Windows-Threat-Intelligence khÃ´ng cáº§n driver |
-| AMSI-Monitoring-Script | `C:\Tools\AMSIScript\AMSIScriptContentRetrieval.ps1` | TrÃ­ch xuáº¥t ná»™i dung script qua AMSI ETW provider |
-| JonMon | `C:\Tools\JonMon` | Bá»™ sensor telemetry mÃ£ nguá»“n má»Ÿ |
-| Fibratus | `C:\Program Files\Fibratus` | Detection theo behavior vÃ  YARA memory scanner |
+| SealighterTI | `C:\Tools\SealighterTI.exe` | Chạy Microsoft-Windows-Threat-Intelligence không cần driver |
+| AMSI-Monitoring-Script | `C:\Tools\AMSIScript\AMSIScriptContentRetrieval.ps1` | Trích xuất nội dung script qua AMSI ETW provider |
+| JonMon | `C:\Tools\JonMon` | Bộ sensor telemetry mã nguồn mở |
+| Fibratus | `C:\Program Files\Fibratus` | Detection theo behavior và YARA memory scanner |
 
-LÆ°u Ã½: má»™t sá»‘ tool nhÆ° **Fibratus** cÃ³ thá»ƒ Ä‘Æ°á»£c thÃªm sau khi module phÃ¡t hÃ nh vÃ  khÃ´ng cÃ³ sáºµn trong target cá»§a module nÃ y.
+Lưu ý: một số tool như **Fibratus** có thể được thêm sau khi module phát hành và không có sẵn trong target của module này.
 
----
+### ETW là gì?
 
-## ETW lÃ  gÃ¬?
+**ETW** là viết tắt của **Event Tracing for Windows**.
 
-**ETW** lÃ  viáº¿t táº¯t cá»§a **Event Tracing for Windows**.
+ETW là cơ chế ghi nhận telemetry sâu trong Windows.
 
-ETW lÃ  cÆ¡ cháº¿ ghi nháº­n telemetry sÃ¢u trong Windows.
-
-NÃ³ cÃ³ thá»ƒ cung cáº¥p thÃ´ng tin vá»:
+Nó có thể cung cấp thông tin về:
 
 - Process.
 - Thread.
@@ -522,13 +502,11 @@ NÃ³ cÃ³ thá»ƒ cung cáº¥p thÃ´ng tin vá»:
 - AMSI.
 - Threat intelligence events.
 
----
+### AMSI Monitoring Script
 
-## AMSI Monitoring Script
+AMSI Monitoring Script giúp trích xuất nội dung script thông qua AMSI ETW provider.
 
-AMSI Monitoring Script giÃºp trÃ­ch xuáº¥t ná»™i dung script thÃ´ng qua AMSI ETW provider.
-
-DÃ¹ng Ä‘á»ƒ quan sÃ¡t script trÆ°á»›c khi nÃ³ Ä‘Æ°á»£c thá»±c thi, Ä‘áº·c biá»‡t há»¯u Ã­ch khi phÃ¢n tÃ­ch:
+Dùng để quan sát script trước khi nó được thực thi, đặc biệt hữu ích khi phân tích:
 
 - PowerShell.
 - Script obfuscation.
@@ -537,170 +515,166 @@ DÃ¹ng Ä‘á»ƒ quan sÃ¡t script trÆ°á»›c khi nÃ³ Ä‘Æ°á»£c
 
 ---
 
-# 15. Adversary Simulation
+## 15. Adversary Simulation
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| Atomic Red Team | `C:\AtomicRedTeam` | Bá»™ test mÃ´ phá»ng ká»¹ thuáº­t MITRE ATT&CK |
+| Atomic Red Team | `C:\AtomicRedTeam` | Bộ test mô phỏng kỹ thuật MITRE ATT&CK |
 
-LÆ°u Ã½: Atomic Red Team Ä‘Æ°á»£c thÃªm sau khi module phÃ¡t hÃ nh vÃ  cÃ³ thá»ƒ khÃ´ng cÃ³ sáºµn trong target cá»§a module nÃ y.
+Lưu ý: Atomic Red Team được thêm sau khi module phát hành và có thể không có sẵn trong target của module này.
 
-## Atomic Red Team
+### Atomic Red Team
 
-**Atomic Red Team** cung cáº¥p cÃ¡c test nhá» Ä‘á»ƒ mÃ´ phá»ng ká»¹ thuáº­t MITRE ATT&CK.
+**Atomic Red Team** cung cấp các test nhỏ để mô phỏng kỹ thuật MITRE ATT&CK.
 
-VÃ­ dá»¥:
+Ví dụ:
 
-- MÃ´ phá»ng PowerShell execution.
-- MÃ´ phá»ng credential dumping.
-- MÃ´ phá»ng persistence.
-- MÃ´ phá»ng lateral movement.
+- Mô phỏng PowerShell execution.
+- Mô phỏng credential dumping.
+- Mô phỏng persistence.
+- Mô phỏng lateral movement.
 
-DÃ¹ng Ä‘á»ƒ kiá»ƒm tra detection rule vÃ  kháº£ nÄƒng log/alert.
+Dùng để kiểm tra detection rule và khả năng log/alert.
 
 ---
 
-# 16. Malware, Process vÃ  PE Analysis
+## 16. Malware, Process và PE Analysis
 
-| Tool | Path | Má»¥c Ä‘Ã­ch |
+| Tool | Path | Mục đích |
 |---|---|---|
-| CFF Explorer | `C:\Tools\CFF-Explorer\CFF Explorer.exe` | Xem vÃ  chá»‰nh sá»­a PE file |
+| CFF Explorer | `C:\Tools\CFF-Explorer\CFF Explorer.exe` | Xem và chỉnh sửa PE file |
 | Ghidra | `C:\Tools\Ghidra\ghidraRun.bat` | Reverse engineering framework |
 | x64dbg | `C:\Tools\x64dbg` | Debugger x64/x32 cho Windows |
 | SpeakEasy | `C:\Tools\speakeasy` | Emulator cho Windows malware |
-| SysInternalsSuite | `C:\Tools\SysinternalsSuite` | Bá»™ cÃ´ng cá»¥ troubleshooting cá»§a Sysinternals |
-| Get-InjectedThread | `C:\Tools\Get-InjectedThread.ps1` | TÃ¬m thread Ä‘Æ°á»£c táº¡o do code injection |
-| Hollows Hunter | `C:\Tools\hollows_hunter64.exe` | Scan process Ä‘á»ƒ phÃ¡t hiá»‡n implant |
+| SysInternalsSuite | `C:\Tools\SysinternalsSuite` | Bộ công cụ troubleshooting của Sysinternals |
+| Get-InjectedThread | `C:\Tools\Get-InjectedThread.ps1` | Tìm thread được tạo do code injection |
+| Hollows Hunter | `C:\Tools\hollows_hunter64.exe` | Scan process để phát hiện implant |
 | Moneta | `C:\Tools\Moneta64.exe` | Live usermode memory analysis |
-| PE-Sieve | `C:\Tools\pe-sieve64.exe` | PhÃ¡t hiá»‡n malware trong process vÃ  dump material Ä‘Ã¡ng ngá» |
-| API Monitor | `C:\Tools\API Monitor` | Theo dÃµi API call |
+| PE-Sieve | `C:\Tools\pe-sieve64.exe` | Phát hiện malware trong process và dump material đáng ngờ |
+| API Monitor | `C:\Tools\API Monitor` | Theo dõi API call |
 | PE-Bear | `C:\Tools\PE-bear` | Reversing tool cho PE file |
-| Process Hacker | `C:\Tools\ProcessHacker` | Theo dÃµi process, debug vÃ  phÃ¡t hiá»‡n malware |
-| ProcMonX | `C:\Tools\ProcMonX.exe` | Process Monitor má»Ÿ rá»™ng dá»±a trÃªn ETW |
+| Process Hacker | `C:\Tools\ProcessHacker` | Theo dõi process, debug và phát hiện malware |
+| ProcMonX | `C:\Tools\ProcMonX.exe` | Process Monitor mở rộng dựa trên ETW |
 | Frida | `C:\Program Files\Python312\Scripts\frida.exe` | Dynamic instrumentation toolkit |
-| LitterBox | `C:\Tools\LitterBox\litterbox.py` | Malware sandbox Ä‘á»ƒ test payload behavior |
+| LitterBox | `C:\Tools\LitterBox\litterbox.py` | Malware sandbox để test payload behavior |
 
-LÆ°u Ã½: má»™t sá»‘ tool nhÆ° **Frida** vÃ  **LitterBox** cÃ³ thá»ƒ Ä‘Æ°á»£c thÃªm sau khi module phÃ¡t hÃ nh vÃ  khÃ´ng cÃ³ sáºµn trong target cá»§a module nÃ y.
+Lưu ý: một số tool như **Frida** và **LitterBox** có thể được thêm sau khi module phát hành và không có sẵn trong target của module này.
 
----
+### PE file là gì?
 
-## PE file lÃ  gÃ¬?
+**PE** là viết tắt của **Portable Executable**.
 
-**PE** lÃ  viáº¿t táº¯t cá»§a **Portable Executable**.
-
-ÄÃ¢y lÃ  Ä‘á»‹nh dáº¡ng file thá»±c thi trÃªn Windows, vÃ­ dá»¥:
+Đây là định dạng file thực thi trên Windows, ví dụ:
 
 - `.exe`
 - `.dll`
 - `.sys`
 
-CÃ´ng cá»¥ nhÆ° CFF Explorer, PE-Bear, Ghidra, x64dbg dÃ¹ng Ä‘á»ƒ phÃ¢n tÃ­ch PE file.
+Công cụ như CFF Explorer, PE-Bear, Ghidra, x64dbg dùng để phân tích PE file.
+
+### Process Injection là gì?
+
+**Process Injection** là kỹ thuật attacker dùng để đưa code độc hại vào process hợp lệ.
+
+Mục tiêu:
+
+- Né detection.
+- Chạy malware dưới process tin cậy.
+- Ẩn hành vi độc hại.
+- Bypass một số security control.
+
+Các tool như Get-InjectedThread, PE-Sieve, Moneta, Hollows Hunter có thể hỗ trợ phát hiện dấu hiệu injection.
 
 ---
 
-## Process Injection lÃ  gÃ¬?
+## 17. Workflow thực hành Purple Module
 
-**Process Injection** lÃ  ká»¹ thuáº­t attacker dÃ¹ng Ä‘á»ƒ Ä‘Æ°a code Ä‘á»™c háº¡i vÃ o process há»£p lá»‡.
-
-Má»¥c tiÃªu:
-
-- NÃ© detection.
-- Cháº¡y malware dÆ°á»›i process tin cáº­y.
-- áº¨n hÃ nh vi Ä‘á»™c háº¡i.
-- Bypass má»™t sá»‘ security control.
-
-CÃ¡c tool nhÆ° Get-InjectedThread, PE-Sieve, Moneta, Hollows Hunter cÃ³ thá»ƒ há»— trá»£ phÃ¡t hiá»‡n dáº¥u hiá»‡u injection.
-
----
-
-# 17. Workflow thá»±c hÃ nh Purple Module
-
-Má»™t workflow Ä‘Æ¡n giáº£n khi thá»±c hÃ nh:
+Một workflow đơn giản khi thực hành:
 
 ```text
 Spawn Target
-      â†“
-Chá» service khá»Ÿi Ä‘á»™ng Ä‘áº§y Ä‘á»§
-      â†“
-Thá»±c hiá»‡n pháº§n táº¥n cÃ´ng
-      â†“
-Giá»¯ target hoáº¡t Ä‘á»™ng
-      â†“
-Thu tháº­p log/network/memory
-      â†“
-PhÃ¢n tÃ­ch báº±ng DFIR tools
-      â†“
-XÃ¡c Ä‘á»‹nh IOC/artifact
-      â†“
-Map MITRE ATT&CK náº¿u cáº§n
-      â†“
-Viáº¿t detection rule
-      â†“
-Kiá»ƒm thá»­ láº¡i detection
+      ↓
+Chờ service khởi động đầy đủ
+      ↓
+Thực hiện phần tấn công
+      ↓
+Giữ target hoạt động
+      ↓
+Thu thập log/network/memory
+      ↓
+Phân tích bằng DFIR tools
+      ↓
+Xác định IOC/artifact
+      ↓
+Map MITRE ATT&CK nếu cần
+      ↓
+Viết detection rule
+      ↓
+Kiểm thử lại detection
 ```
 
 ---
 
-# 18. Báº£ng Ã´n nhanh thuáº­t ngá»¯
+## 18. Bảng ôn nhanh thuật ngữ
 
-| Thuáº­t ngá»¯ | NghÄ©a ngáº¯n gá»n |
+| Thuật ngữ | Nghĩa ngắn gọn |
 |---|---|
-| Purple Team | Káº¿t há»£p Red Team vÃ  Blue Team |
-| Purple Module | MÃ´-Ä‘un há»c cáº£ táº¥n cÃ´ng vÃ  phÃ²ng thá»§ |
+| Purple Team | Kết hợp Red Team và Blue Team |
+| Purple Module | Mô-đun học cả tấn công và phòng thủ |
 | DFIR | Digital Forensics and Incident Response |
-| Artifact | Dáº¥u váº¿t hoáº·c báº±ng chá»©ng Ä‘á»ƒ láº¡i trÃªn há»‡ thá»‘ng |
-| Telemetry | Dá»¯ liá»‡u quan sÃ¡t tá»« endpoint/network |
+| Artifact | Dấu vết hoặc bằng chứng để lại trên hệ thống |
+| Telemetry | Dữ liệu quan sát từ endpoint/network |
 | IOC | Indicator of Compromise |
-| Sysmon | CÃ´ng cá»¥ ghi log chi tiáº¿t trÃªn Windows |
-| Yara | CÃ´ng cá»¥ scan file theo rule/signature |
-| Sigma | Äá»‹nh dáº¡ng rule phÃ¡t hiá»‡n cho log/SIEM |
-| Chainsaw | CÃ´ng cá»¥ hunt Windows Event Logs |
-| Zircolite | PhÃ¢n tÃ­ch EVTX báº±ng Sigma |
-| Osquery | Query endpoint báº±ng SQL-like syntax |
-| Velociraptor | Endpoint monitoring, collection vÃ  response |
-| Wireshark | CÃ´ng cá»¥ báº¯t vÃ  phÃ¢n tÃ­ch gÃ³i tin |
-| Memory Dump | Báº£n chá»¥p RAM |
-| Volatility | CÃ´ng cá»¥ phÃ¢n tÃ­ch memory dump |
+| Sysmon | Công cụ ghi log chi tiết trên Windows |
+| Yara | Công cụ scan file theo rule/signature |
+| Sigma | Định dạng rule phát hiện cho log/SIEM |
+| Chainsaw | Công cụ hunt Windows Event Logs |
+| Zircolite | Phân tích EVTX bằng Sigma |
+| Osquery | Query endpoint bằng SQL-like syntax |
+| Velociraptor | Endpoint monitoring, collection và response |
+| Wireshark | Công cụ bắt và phân tích gói tin |
+| Memory Dump | Bản chụp RAM |
+| Volatility | Công cụ phân tích memory dump |
 | ETW | Event Tracing for Windows |
 | AMSI | Antimalware Scan Interface |
 | PE | Portable Executable |
-| Process Injection | Ká»¹ thuáº­t inject code vÃ o process khÃ¡c |
-| Atomic Red Team | Bá»™ test mÃ´ phá»ng ká»¹ thuáº­t MITRE ATT&CK |
+| Process Injection | Kỹ thuật inject code vào process khác |
+| Atomic Red Team | Bộ test mô phỏng kỹ thuật MITRE ATT&CK |
 
 ---
 
-# 19. CÃ¢u há»i Ã´n táº­p
+## 19. Câu hỏi ôn tập
 
-## 1. VÃ¬ sao forensic analysis cáº§n pháº§n táº¥n cÃ´ng xáº£y ra trÆ°á»›c?
+### 1. Vì sao forensic analysis cần phần tấn công xảy ra trước?
 
-VÃ¬ táº¥n cÃ´ng táº¡o ra log, traffic, memory artifact vÃ  cÃ¡c dáº¥u váº¿t cáº§n thiáº¿t Ä‘á»ƒ phÃ¢n tÃ­ch forensic.
+Vì tấn công tạo ra log, traffic, memory artifact và các dấu vết cần thiết để phân tích forensic.
 
-## 2. VÃ¬ sao target cáº§n duy trÃ¬ hoáº¡t Ä‘á»™ng sau khi attack?
+### 2. Vì sao target cần duy trì hoạt động sau khi attack?
 
-VÃ¬ nhiá»u báº±ng chá»©ng nhÆ° memory artifact, process, network connection hoáº·c service telemetry cÃ³ thá»ƒ máº¥t náº¿u target bá»‹ táº¯t quÃ¡ sá»›m.
+Vì nhiều bằng chứng như memory artifact, process, network connection hoặc service telemetry có thể mất nếu target bị tắt quá sớm.
 
-## 3. Purple Module cÃ³ lá»£i gÃ¬ cho Blue Team?
+### 3. Purple Module có lợi gì cho Blue Team?
 
-Blue Team cÃ³ thá»ƒ há»c cÃ¡ch attack táº¡o artifact, phÃ¡t triá»ƒn detection rule, kiá»ƒm thá»­ threat hunting hypothesis vÃ  xÃ¢y dá»±ng incident response playbook.
+Blue Team có thể học cách attack tạo artifact, phát triển detection rule, kiểm thử threat hunting hypothesis và xây dựng incident response playbook.
 
-## 4. Purple Module cÃ³ lá»£i gÃ¬ cho Red Team?
+### 4. Purple Module có lợi gì cho Red Team?
 
-Red Team cÃ³ thá»ƒ quan sÃ¡t dáº¥u váº¿t mÃ  payload hoáº·c ká»¹ thuáº­t cá»§a mÃ¬nh Ä‘á»ƒ láº¡i, tá»« Ä‘Ã³ cáº£i thiá»‡n OPSEC vÃ  giáº£m kháº£ nÄƒng bá»‹ phÃ¡t hiá»‡n.
+Red Team có thể quan sát dấu vết mà payload hoặc kỹ thuật của mình để lại, từ đó cải thiện OPSEC và giảm khả năng bị phát hiện.
 
-## 5. Velociraptor dÃ¹ng Ä‘á»ƒ lÃ m gÃ¬?
+### 5. Velociraptor dùng để làm gì?
 
-Velociraptor dÃ¹ng cho endpoint monitoring, collection vÃ  response. NÃ³ giÃºp thu tháº­p artifact, Ä‘iá»u tra endpoint vÃ  pháº£n á»©ng trong quÃ¡ trÃ¬nh DFIR.
+Velociraptor dùng cho endpoint monitoring, collection và response. Nó giúp thu thập artifact, điều tra endpoint và phản ứng trong quá trình DFIR.
 
 ---
 
-# Key Takeaway
+## Key Takeaway
 
-HTB Academy Purple Modules giÃºp ngÆ°á»i há»c káº¿t ná»‘i giá»¯a táº¥n cÃ´ng vÃ  phÃ²ng thá»§.
+HTB Academy Purple Modules giúp người học kết nối giữa tấn công và phòng thủ.
 
-Thay vÃ¬ chá»‰ há»c cÃ¡ch khai thÃ¡c, ngÆ°á»i há»c cÃ²n cÃ³ thá»ƒ phÃ¢n tÃ­ch cÃ¡c dáº¥u váº¿t mÃ  cuá»™c táº¥n cÃ´ng Ä‘á»ƒ láº¡i, tá»« Ä‘Ã³ hiá»ƒu rÃµ hÆ¡n vá» detection, forensic vÃ  incident response.
+Thay vì chỉ học cách khai thác, người học còn có thể phân tích các dấu vết mà cuộc tấn công để lại, từ đó hiểu rõ hơn về detection, forensic và incident response.
 
-Äá»‘i vá»›i Blue Team, Ä‘Ã¢y lÃ  mÃ´i trÆ°á»ng tá»‘t Ä‘á»ƒ luyá»‡n Ä‘iá»u tra vÃ  viáº¿t detection.
+Đối với Blue Team, đây là môi trường tốt để luyện điều tra và viết detection.
 
-Äá»‘i vá»›i Red Team, Ä‘Ã¢y lÃ  mÃ´i trÆ°á»ng tá»‘t Ä‘á»ƒ hiá»ƒu tool vÃ  payload cá»§a mÃ¬nh bá»‹ phÃ¡t hiá»‡n nhÆ° tháº¿ nÃ o.
+Đối với Red Team, đây là môi trường tốt để hiểu tool và payload của mình bị phát hiện như thế nào.
 
-Äá»‘i vá»›i Purple Team, Ä‘Ã¢y lÃ  ná»n táº£ng giÃºp hai bÃªn phá»‘i há»£p Ä‘á»ƒ cáº£i thiá»‡n nÄƒng lá»±c phÃ²ng thá»§ thá»±c táº¿.
+Đối với Purple Team, đây là nền tảng giúp hai bên phối hợp để cải thiện năng lực phòng thủ thực tế.
