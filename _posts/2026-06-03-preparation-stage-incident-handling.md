@@ -580,31 +580,6 @@ Trong Jump Bag thường có:
 | Secure Facility | Khu vực điều tra/lưu trữ an toàn |
 | Jump Bag | Túi đồ nghề phản ứng sự cố chuẩn bị sẵn |
 
----
-
-# Câu hỏi HTB liên quan
-
-## Question
-
-```text
-What should we have prepared and always ready to 'grab and go'?
-```
-
-## Giải thích
-
-Câu hỏi này hỏi rằng:
-
-```text
-Chúng ta cần chuẩn bị sẵn thứ gì để có thể cầm lên và đi ngay khi có sự cố?
-```
-
-Trong bài, bộ công cụ đó được gọi là **Jump Bag**.
-
-## Answer
-
-```text
-jump bag
-```
 
 ---
 
