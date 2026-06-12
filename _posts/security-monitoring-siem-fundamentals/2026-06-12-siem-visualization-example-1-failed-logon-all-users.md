@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SIEM Visualization: Failed Logon Attempts All Users"
+title: "SIEM Visualization Example 1: Failed Logon Attempts All Users"
 date: 2026-06-12 22:40:00 +0700
 categories: [SOC, SIEM]
 tags: [soc, siem, elastic-stack, kibana, kql, visualization, failed-logon, windows-event, dashboard, blue-team]
@@ -8,7 +8,7 @@ description: "Ghi chú hướng dẫn tạo dashboard và visualization trong Ki
 toc: true
 ---
 
-# SIEM Visualization: Failed Logon Attempts All Users
+# SIEM Visualization Example 1: Failed Logon Attempts All Users
 
 Trong bài này, ta tạo một dashboard và visualization trong Kibana để theo dõi các lần **failed logon attempts** của tất cả user.
 

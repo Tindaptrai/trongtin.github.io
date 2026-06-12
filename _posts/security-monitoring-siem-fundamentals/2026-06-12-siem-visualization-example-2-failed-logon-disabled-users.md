@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SIEM Visualization: Failed Logon Attempts Against Disabled Users"
+title: "SIEM Visualization Example 2: Failed Logon Attempts Disabled Users"
 date: 2026-06-12 22:29:00 +0700
 categories: [SOC, SIEM]
 tags: [soc, siem, elastic-stack, kibana, kql, visualization, failed-logon, disabled-user, windows-event, blue-team]
@@ -8,7 +8,7 @@ description: "Ghi chú hướng dẫn tạo visualization trong Kibana để the
 toc: true
 ---
 
-# SIEM Visualization: Failed Logon Attempts Against Disabled Users
+# SIEM Visualization Example 2: Failed Logon Attempts Disabled Users
 
 Trong bài này, ta tạo một visualization trong Kibana để theo dõi các lần **failed logon attempts** nhắm vào **disabled users**.
 
